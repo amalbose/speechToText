@@ -26,7 +26,9 @@ app.get("/weather", (req, res) => {
     } else {
       let weather = JSON.parse(body);
       let message = `It's ${weather.main.temp} degrees in ${weather.name}! with ${weather.weather[0].description}`;
-      speak(message, res);
+      var speakCmd = cmd + message;
+
+      speak(speakCmd);
       res.json(message);
     }
   });
