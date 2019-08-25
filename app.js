@@ -9,6 +9,7 @@ app.get("/speak", (req, res, next) => {
   var text = req.query.t;
   var speakCmd = cmd + text;
   speak(speakCmd);
+  res.json("OK");
 });
 
 function speak(speakCmd) {
@@ -23,11 +24,12 @@ app.get("/weather", (req, res) => {
   request(url, function(err, response, body) {
     if (err) {
       console.log("error:", error);
+      res.json(err);
     } else {
       let weather = JSON.parse(body);
       let message = `It's ${weather.main.temp} degrees in ${weather.name}! with ${weather.weather[0].description}`;
       var speakCmd = cmd + message;
-
+      exec(speakCmd, function(error, stdout, stderr) {});
       speak(speakCmd);
       res.json(message);
     }
