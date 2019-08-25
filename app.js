@@ -5,8 +5,8 @@ var cmd = "/home/pi/speech.sh ";
 
 app.get("/speak", (req, res, next) => {
   var text = req.query.t;
-  cmd = cmd + text;
-  exec(cmd, function(error, stdout, stderr) {
+  var speakCmd = cmd + text;
+  exec(speakCmd, function(error, stdout, stderr) {
     res.json("OK");
   });
 });
