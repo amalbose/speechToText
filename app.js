@@ -31,7 +31,7 @@ app.get("/weather", (req, res) => {
         " Its " +
         weather.main.temp +
         " degrees in " +
-        weather.nae +
+        weather.name +
         "! with " +
         weather.weather[0].description;
       var speakCmd = cmd + message;
