@@ -7,7 +7,7 @@ app.get("/speak", (req, res, next) => {
   var text = req.query.t;
   cmd = cmd + text;
   exec(cmd, function(error, stdout, stderr) {
-    res.json(req);
+    res.json("OK");
   });
 });
 
