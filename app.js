@@ -8,6 +8,7 @@ var cmd = "/home/pi/speech.sh ";
 app.get("/speak", (req, res, next) => {
   var text = req.query.t;
   var speakCmd = cmd + text;
+  speak(speakCmd);
 });
 
 function speak(speakCmd) {
